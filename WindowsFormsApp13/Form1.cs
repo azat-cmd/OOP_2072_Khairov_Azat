@@ -19,7 +19,7 @@ namespace WindowsFormsApp13
 
         private string checking(TextBox textBox, string old)
         {
-            if (textBox.Text != "")
+            if (textBox.Text != "" && textBox.Text != "-")
             {
                 if (int.TryParse(textBox.Text, out int res) != true)
                 {
