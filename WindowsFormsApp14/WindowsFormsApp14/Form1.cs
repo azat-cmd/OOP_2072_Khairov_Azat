@@ -17,19 +17,16 @@ namespace WindowsFormsApp14
             InitializeComponent();
         }
         static Random rnd = new Random();
-        bool circle = false;
-        bool rect = false;
+        string fig = "circle";
 
         private void button1_Click(object sender, EventArgs e)
         {
-            circle = true;
-            rect = false;
+            fig = "circle";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            circle = false;
-            rect = true;
+            fig = "rect";
             
         }
         
@@ -44,18 +41,28 @@ namespace WindowsFormsApp14
             int height = DrawPanel.Height;
             int x = e.X;
             int y = e.Y;
-            if (circle)
+            Graphics instrument = DrawPanel.CreateGraphics();
+            if (fig == "circle")
             {
                 MyCirkle circle = new MyCirkle(x, y, rnd.Next(20, 50));
-                Graphics instrument = DrawPanel.CreateGraphics();
                 circle.draw(instrument);
             }
-            if (rect)
+            if (fig == "rect")
             {
                 MyRectangle rect = new MyRectangle(x, y, rnd.Next(20, 50));
-                Graphics instrument = DrawPanel.CreateGraphics();
                 rect.draw(instrument);
             }
+            if (fig == "telega")
+            {
+                int wid = rnd.Next(20, 50);
+                Telega telega = new Telega(x, y, wid,wid + rnd.Next(10,20));
+                telega.draw(instrument);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fig = "telega";
         }
     }
 }
