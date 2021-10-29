@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp14
 {
-    class Telega
+    class Telega:Figure
     {
         Graphics instrument;
         public int x, y, width, height;
         MyRectangle kuzov;
         MyCirkle koleso1;
         MyCirkle koleso2;
-        public Telega(int x, int y, int width, int height)
+        public Telega(int x, int y, int width, int height):base(x,y)
         {
             this.x = x ;
             this.y = y ;
@@ -25,7 +25,7 @@ namespace WindowsFormsApp14
             this.width = width;
             this.height = height;
         }
-        public void draw(Graphics instrument)
+        public override void draw(Graphics instrument)
         {
             this.instrument = instrument;
             kuzov.drawWH(instrument);

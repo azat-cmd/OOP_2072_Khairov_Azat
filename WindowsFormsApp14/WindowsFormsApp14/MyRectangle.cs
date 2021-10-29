@@ -8,18 +8,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp14
 {
-    class MyRectangle
+    class MyRectangle : Figure
     {
-        int x, y, rad, width,height;
+        int x, y, rad, count, width,height;
         Graphics instrument;
-        public MyRectangle( int x, int y, int rad)
+        public MyRectangle(int x, int y, int rad) : base(x, y)
         {
             this.x = x;
             this.y = y;
             this.rad = rad;
-           
+
         }
-        public MyRectangle(int x, int y, int width,int height)
+        public MyRectangle(int x, int y, int width,int height) : base(x, y)
         {
             this.x = x;
             this.y = y;
@@ -33,7 +33,7 @@ namespace WindowsFormsApp14
             instrument.DrawRectangle(new Pen(Color.Black), x - width/2, y - height/2, width, height);
 
         }
-        public void draw(Graphics instrument)
+        public override void draw(Graphics instrument)
         { 
             this.instrument = instrument;
             instrument.DrawRectangle(new Pen(Color.Black), x - rad, y - rad, rad * 2, rad * 2);

@@ -8,18 +8,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp14
 {
-    class MyCirkle
+    class MyCirkle : Figure
     {
         Graphics instrument;
         public int x, y, rad;
-        public MyCirkle( int x, int y, int rad)
+        public MyCirkle( int x, int y,int rad) : base(x, y)
         {
-            this.x = x - rad ;
-            this.y = y - rad ;
+            this.x = x - rad;
+            this.y = y - rad;
             this.rad = rad;
-            
+
         }
-        public void draw(Graphics instrument)
+        public override void draw(Graphics instrument)
         {
             this.instrument = instrument;
             instrument.DrawEllipse(new Pen(Color.Black), x, y, rad * 2, rad * 2);
