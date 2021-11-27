@@ -9,15 +9,19 @@ namespace WindowsFormsApp14
 {
     class Figure
     {
-        protected int x, y;
-        protected Graphics insrument;
-        protected Figure(int x, int y)
+        public int x, y;
+        public Figure(int x, int y)
         {
             this.x = x;
             this.y = y;
         }
         public virtual void draw(Graphics insrument)
         {
+        }
+        public void move(int new_x,int new_y)
+        {
+            x = new_x;
+            y = new_y;
         }
     }
 }

@@ -9,8 +9,7 @@ namespace WindowsFormsApp14
 {
     class Telega_s_uglem : Telega
     {
-        Graphics instrument;
-        public int x, y, width, height;
+        public int width, height;
         Point[] points;
         public Telega_s_uglem(int x, int y, int width, int height) : base(x, y + 2 * height / 10, width, 8 * height / 10)
         {
@@ -22,7 +21,6 @@ namespace WindowsFormsApp14
         }
         public override void draw(Graphics instrument)
         {
-            this.instrument = instrument;
             base.draw(instrument);
             instrument.DrawPolygon(new Pen(Color.Black), points);
 

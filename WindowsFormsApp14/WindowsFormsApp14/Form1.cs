@@ -15,7 +15,7 @@ namespace WindowsFormsApp14
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         static Random rnd = new Random();
         string fig = "circle";
@@ -28,9 +28,9 @@ namespace WindowsFormsApp14
         private void button2_Click(object sender, EventArgs e)
         {
             fig = "rect";
-            
+
         }
-        
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -39,31 +39,36 @@ namespace WindowsFormsApp14
         List<Figure> figures = new List<Figure>();
         private void Click(object sender, MouseEventArgs e)
         {
-            int x = e.X;
-            int y = e.Y;
-            Graphics instrument = DrawPanel.CreateGraphics();
-            if (fig == "circle")
+            if (!move)
             {
-                figures.Add(new MyCirkle(x, y, rnd.Next(20, 50)));
-            }
-            if (fig == "rect")
-            {
-                figures.Add(new MyRectangle(x, y, rnd.Next(20, 50)));
-            }
-            if (fig == "telega")
-            {
-                int wid = rnd.Next(20, 50);
-                figures.Add(new Telega(x, y, wid, wid + rnd.Next(10, 20)));
-            }
-            if (fig == "Telega_s_uglem")
-            {
-                int wid = rnd.Next(20, 50);
-                figures.Add(new Telega_s_uglem(x, y, wid, wid + rnd.Next(10, 20)));
-            }
-            if (fig == "Telega_s_kamnem")
-            {
-                int wid = rnd.Next(20, 50);
-                figures.Add(new Telega_s_kamnem(x, y, wid, wid + rnd.Next(10, 20)));
+
+
+                int x = e.X;
+                int y = e.Y;
+                Graphics instrument = DrawPanel.CreateGraphics();
+                if (fig == "circle")
+                {
+                    figures.Add(new MyCirkle(x, y, rnd.Next(20, 50)));
+                }
+                if (fig == "rect")
+                {
+                    figures.Add(new MyRectangle(x, y, 30, 30));
+                }
+                if (fig == "telega")
+                {
+                    int wid = rnd.Next(20, 50);
+                    figures.Add(new Telega(x, y, wid, wid + rnd.Next(10, 20)));
+                }
+                if (fig == "Telega_s_uglem")
+                {
+                    int wid = rnd.Next(20, 50);
+                    figures.Add(new Telega_s_uglem(x, y, wid, wid + rnd.Next(10, 20)));
+                }
+                if (fig == "Telega_s_kamnem")
+                {
+                    int wid = rnd.Next(20, 50);
+                    figures.Add(new Telega_s_kamnem(x, y, wid, wid + rnd.Next(10, 20)));
+                }
             }
             DrawPanel.Refresh();
         }
@@ -88,6 +93,45 @@ namespace WindowsFormsApp14
         private void button5_Click(object sender, EventArgs e)
         {
             fig = "Telega_s_kamnem";
+        }
+        bool move = false;
+        private void move_button_Click(object sender, EventArgs e)
+        {
+
+            move = true;
+            
+        }
+        Figure figm;
+        private void Down(object sender, MouseEventArgs e)
+        {
+            if (move)
+            {
+                int y = e.Y;
+                int x = e.X;
+                double min = 10000;
+                figm = new Figure(1, 1);
+                double dist;
+                foreach (Figure figure in figures)
+                {
+                    dist = Math.Pow(figure.x - x, 2) + Math.Pow(figure.y - y, 2);
+                    if (dist < min)
+                    {
+                        figm = figure;
+                        min = dist;
+                    }
+                }
+            }
+        }
+
+        private void Up(object sender, MouseEventArgs e)
+        {
+            if (move)
+            {
+                figm.x = e.X;
+                figm.y = e.Y;
+            }
+            move = false;
+
         }
     }
 }

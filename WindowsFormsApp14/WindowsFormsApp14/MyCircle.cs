@@ -10,8 +10,7 @@ namespace WindowsFormsApp14
 {
     class MyCirkle : Figure
     {
-        Graphics instrument;
-        public int x, y, rad;
+        public int rad;
         public MyCirkle( int x, int y,int rad) : base(x, y)
         {
             this.x = x - rad;
@@ -21,7 +20,6 @@ namespace WindowsFormsApp14
         }
         public override void draw(Graphics instrument)
         {
-            this.instrument = instrument;
             instrument.DrawEllipse(new Pen(Color.Black), x, y, rad * 2, rad * 2);
         }
         

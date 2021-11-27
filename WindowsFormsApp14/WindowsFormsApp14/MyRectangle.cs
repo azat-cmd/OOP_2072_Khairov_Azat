@@ -10,16 +10,9 @@ namespace WindowsFormsApp14
 {
     class MyRectangle : Figure
     {
-        int x, y, rad, count, width,height;
-        Graphics instrument;
-        public MyRectangle(int x, int y, int rad) : base(x, y)
-        {
-            this.x = x;
-            this.y = y;
-            this.rad = rad;
+        int width, height;
 
-        }
-        public MyRectangle(int x, int y, int width,int height) : base(x, y)
+        public MyRectangle(int x, int y, int width, int height) : base(x, y)
         {
             this.x = x;
             this.y = y;
@@ -27,17 +20,11 @@ namespace WindowsFormsApp14
             this.height = height;
 
         }
-        public void drawWH(Graphics instrument)
-        {
-            this.instrument = instrument;
-            instrument.DrawRectangle(new Pen(Color.Black), x - width/2, y - height/2, width, height);
 
-        }
         public override void draw(Graphics instrument)
-        { 
-            this.instrument = instrument;
-            instrument.DrawRectangle(new Pen(Color.Black), x - rad, y - rad, rad * 2, rad * 2);
-            
+        {
+            instrument.DrawRectangle(new Pen(Color.Black), x - width / 2, y - height / 2, width, height);
+
         }
     }
 }

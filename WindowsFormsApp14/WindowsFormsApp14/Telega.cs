@@ -10,8 +10,7 @@ namespace WindowsFormsApp14
 {
     class Telega:Figure
     {
-        Graphics instrument;
-        public int x, y, width, height;
+        public int  width, height;
         MyRectangle kuzov;
         MyCirkle koleso1;
         MyCirkle koleso2;
@@ -27,8 +26,7 @@ namespace WindowsFormsApp14
         }
         public override void draw(Graphics instrument)
         {
-            this.instrument = instrument;
-            kuzov.drawWH(instrument);
+            kuzov.draw(instrument);
             koleso1.draw(instrument);
             koleso2.draw(instrument);
         }
