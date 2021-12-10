@@ -14,8 +14,7 @@ namespace WindowsFormsApp14
 
         public MyRectangle(int x, int y, int width, int height) : base(x, y)
         {
-            this.x = x;
-            this.y = y;
+           
             this.width = width;
             this.height = height;
 
@@ -24,7 +23,12 @@ namespace WindowsFormsApp14
         public override void draw(Graphics instrument)
         {
             instrument.DrawRectangle(new Pen(Color.Black), x - width / 2, y - height / 2, width, height);
-
+            
+        }
+        public override bool IsPointInside(int x, int y)
+        {
+            return x <= this.x + width / 2 && x >= this.x - width / 2 &&
+                   y <= this.y + height / 2 && y >= this.y - height / 2 ;
         }
     }
 }

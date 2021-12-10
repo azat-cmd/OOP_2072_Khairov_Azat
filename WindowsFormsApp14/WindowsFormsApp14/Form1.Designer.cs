@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.move_button = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -100,7 +101,7 @@
             // 
             // move_button
             // 
-            this.move_button.Location = new System.Drawing.Point(693, 163);
+            this.move_button.Location = new System.Drawing.Point(707, 52);
             this.move_button.Name = "move_button";
             this.move_button.Size = new System.Drawing.Size(72, 76);
             this.move_button.TabIndex = 7;
@@ -108,11 +109,22 @@
             this.move_button.UseVisualStyleBackColor = true;
             this.move_button.Click += new System.EventHandler(this.move_button_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(707, 155);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(72, 76);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Train";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.move_button);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -134,6 +146,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button move_button;
+        private System.Windows.Forms.Button button6;
     }
 }
 

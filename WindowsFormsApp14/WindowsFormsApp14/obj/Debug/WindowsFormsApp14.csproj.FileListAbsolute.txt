@@ -36,3 +36,13 @@ C:\Users\khar.20.FREE\source\repos\OOP_2072_Khairov_Azat\WindowsFormsApp14\Windo
 C:\Users\khar.20.FREE\source\repos\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.csproj.GenerateResource.cache
 C:\Users\khar.20.FREE\source\repos\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.exe
 C:\Users\khar.20.FREE\source\repos\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.pdb
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.csproj.AssemblyReference.cache
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.Form1.resources
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.Properties.Resources.resources
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.csproj.GenerateResource.cache
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.csproj.CoreCompileInputs.cache
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.exe
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\obj\Debug\WindowsFormsApp14.pdb
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\bin\Debug\WindowsFormsApp14.exe.config
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\bin\Debug\WindowsFormsApp14.exe
+D:\azath\Documents\OOP_2072_Khairov_Azat\WindowsFormsApp14\WindowsFormsApp14\bin\Debug\WindowsFormsApp14.pdb

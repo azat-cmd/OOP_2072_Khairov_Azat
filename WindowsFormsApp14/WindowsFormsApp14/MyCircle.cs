@@ -11,17 +11,21 @@ namespace WindowsFormsApp14
     class MyCirkle : Figure
     {
         public int rad;
+       
         public MyCirkle( int x, int y,int rad) : base(x, y)
         {
-            this.x = x - rad;
-            this.y = y - rad;
+           
             this.rad = rad;
 
         }
         public override void draw(Graphics instrument)
         {
-            instrument.DrawEllipse(new Pen(Color.Black), x, y, rad * 2, rad * 2);
+            instrument.DrawEllipse(new Pen(Color.Black), x-rad, y-rad, rad * 2, rad * 2);
         }
-        
+        public override bool IsPointInside(int x, int y)
+        {
+            double distantion = Math.Pow(this.x - x, 2) + Math.Pow(this.y - y,2);
+            return distantion <= Math.Pow(rad, 2);                
+        }
     }
 }
