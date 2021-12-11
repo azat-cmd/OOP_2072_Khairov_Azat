@@ -15,10 +15,10 @@ namespace WindowsFormsApp14
         public Form1()
         {
             InitializeComponent();
-
         }
         enum Figs
         {
+            None,
             circle,
             rect,
             wagon,
@@ -28,8 +28,8 @@ namespace WindowsFormsApp14
         }
         Figs fig = Figs.circle;
         static Random rnd = new Random();
-        
-        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             fig = Figs.circle;
@@ -60,7 +60,10 @@ namespace WindowsFormsApp14
         {
 
         }
-
+        private bool IsInt(string str)
+        {
+            return Int32.TryParse(str, out int a);
+        }
         List<Figure> figures = new List<Figure>();
         private void Click(object sender, MouseEventArgs e)
         {
@@ -71,35 +74,35 @@ namespace WindowsFormsApp14
                 int x = e.X;
                 int y = e.Y;
                 Graphics instrument = DrawPanel.CreateGraphics();
-                if (fig == Figs.circle)
+                if (fig == Figs.circle && IsInt(rad.Text))
                 {
-                    figures.Add(new MyCirkle(x, y, rnd.Next(20, 50)));
+                    figures.Add(new MyCirkle(x, y, Convert.ToInt32(rad.Text)));
                 }
-                if (fig == Figs.rect)
+                if (fig == Figs.rect && IsInt(width.Text) && IsInt(height.Text))
                 {
-                    figures.Add(new MyRectangle(x, y, 30, 30));
+                    figures.Add(new MyRectangle(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
                 }
-                if (fig == Figs.wagon)
+                if (fig == Figs.wagon && IsInt(width.Text) && IsInt(height.Text))
                 {
-                    figures.Add(new MyWagon(x, y, 300, 200, 33 ));
+                    figures.Add(new MyWagon(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
                 }
-                if (fig == Figs.coal)
+                if (fig == Figs.coal && IsInt(width.Text) && IsInt(height.Text))
                 {
-                    figures.Add(new MyWagonCoal(x, y, 300, 200));
+                    figures.Add(new MyWagonCoal(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
                 }
-                if (fig == Figs.sand)
+                if (fig == Figs.sand && IsInt(width.Text) && IsInt(height.Text))
                 {
-                    figures.Add(new MyWagonSand(x, y, 300, 200));
+                    figures.Add(new MyWagonSand(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
                 }
-                if (fig == Figs.train)
+                if (fig == Figs.train && IsInt(width.Text) && IsInt(height.Text) && IsInt(count.Text))
                 {
-                    figures.Add(new MyTrain(x, y, 300, 200, 5));
+                    figures.Add(new MyTrain(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text), Convert.ToInt32(count.Text)));
                 }
             }
             DrawPanel.Refresh();
         }
 
-        
+
 
         private void DrawPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -108,51 +111,77 @@ namespace WindowsFormsApp14
                 figure.draw(instrument);
         }
 
-        
+
         bool move = false;
         private void move_button_Click(object sender, EventArgs e)
         {
 
             move = true;
-            
+
         }
         Figure figm;
+        bool moveOK;
         private void Down(object sender, MouseEventArgs e)
         {
-            int x = e.X;
-            int y = e.Y;
-            Graphics instrument = DrawPanel.CreateGraphics();
-            instrument.DrawRectangle(new Pen(Brushes.Blue), x - 150, y - 100, 300, 200);
-            //if (move)
-            //{
-            //    int y = e.Y;
-            //    int x = e.X;
-            //    double min = 10000;
-            //    figm = new Figure(1, 1);
-            //    double dist;
-            //    foreach (Figure figure in figures)
-            //    {
-            //        dist = Math.Pow(figure.x - x, 2) + Math.Pow(figure.y - y, 2);
-            //        if (dist < min)
-            //        {
-            //            figm = figure;
-            //            min = dist;
-            //        }
-            //    }
-            //}
+
+            if (move)
+            {
+                moveOK = false;
+                int x = e.X;
+                int y = e.Y;
+                foreach (Figure fig in figures)
+                {
+                    if (fig.IsPointInside(x, y))
+                    {
+                        figm = fig;
+                        moveOK = true;
+                    }
+                        ;
+                    continue;
+                }
+            }
+
+
         }
 
         private void Up(object sender, MouseEventArgs e)
         {
-            //if (move)
-            //{
-            //    figm.x = e.X;
-            //    figm.y = e.Y;
-            //}
-            //move = false;
+            if (moveOK)
+            {
+                int x = e.X;
+                int y = e.Y;
+                figm.move(x, y);
+                move = false;
+                moveOK = false;
+                DrawPanel.Refresh();
+                fig = Figs.None;
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
 
         }
 
-        
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            figures = new List<Figure>();
+            DrawPanel.Refresh();
+        }
     }
 }

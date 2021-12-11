@@ -29,7 +29,7 @@ namespace WindowsFormsApp14
         public virtual void draw(Graphics instrument)
         {
         }
-        public void move(int new_x,int new_y)
+        public virtual void move(int new_x,int new_y)
         {
             x = new_x;
             y = new_y;

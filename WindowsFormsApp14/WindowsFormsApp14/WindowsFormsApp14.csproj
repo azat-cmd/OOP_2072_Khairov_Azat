@@ -62,9 +62,6 @@
     <Compile Include="MyWagonSand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Telega.cs" />
-    <Compile Include="Telega_s_kamnem.cs" />
-    <Compile Include="Telega_s_uglem.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

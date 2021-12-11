@@ -13,10 +13,10 @@ namespace WindowsFormsApp14
         Point p2;
         Point p3;
         public MyWagonSand(int x, int y, int width, int height) :
-            base(x, y + 2 * height / 10, width, 6 * height / 10, width * height / 10)
+            base(x, y + 2 * height / 10, width, 6 * height / 10)
         {
-            p1 = new Point(x - width / 2, y - height / 20);
-            p2 = new Point(x + width / 2, y - height / 20);
+            p1 = new Point(x - width / 2, y - height / 10);
+            p2 = new Point(x + width / 2, y - height / 10);
             p3 = new Point(x, y - height/2);
         }
         public override void draw(Graphics instrument)
@@ -24,8 +24,7 @@ namespace WindowsFormsApp14
             base.draw(instrument);
             Point[] points = { p1, p2, p3 };
             instrument.FillPolygon(Brushes.Yellow, points);
-            instrument.DrawRectangle(new Pen(Brushes.Blue), x - width / 2, y - height / 2, width, height);
-            instrument.FillEllipse(Brushes.Red, x - 5, y - 5, 10, 10);
+            
         }
         public override bool IsPointInside(int x, int y)
         {
@@ -36,6 +35,13 @@ namespace WindowsFormsApp14
                 a > 0 && b > 0 && c > 0 ||
                 a < 0 && b < 0 && c < 0 ||
                 a == 0 && b == 0 && c == 0;
+        }
+        public override void move(int new_x, int new_y)
+        {
+            base.move(new_x, new_y);
+            p1 = new Point(x - width / 2, y - height / 10);
+            p2 = new Point(x + width / 2, y - height / 10);
+            p3 = new Point(x, y - height / 2);
         }
     }
 }

@@ -9,42 +9,38 @@ namespace WindowsFormsApp14
 {
     class MyTrain : Figure
     {
-        int count;
+        
         static Random rnd;
         List<MyWagon> list;
-
         public int Count
         {
             get
             {
-                int sum = 0;
-                foreach (MyWagon i in list)
-                    sum += i.count;
-                return sum;
+                return list.Count;
             }
         }
         int gap;
-        public MyTrain(int x, int y, int width, int height, int count) : base(x, y)
+        public MyTrain(int x, int y, int width, int height,int count) : base(x, y)
         {
-            this.count = count;
-            gap = (width / 10) / (count - 1);
+            
+            gap = width/10;
             rnd = new Random();
-            list = new List<MyWagon>();
+            list = new List<MyWagon>();           
             int t = rnd.Next(3);
             if (t == 0)
                 for (int i = 0; i < count; i++)
                 {
-                    list.Add(new MyWagon(x + (width / count ) * i, y, width / count , height, rnd.Next(20, 100)));
+                    list.Add(new MyWagon(x +(width +gap)*i, y, width , height));
                 }
             if (t == 1)
                 for (int i = 0; i < count; i++)
                 {
-                    list.Add(new MyWagonCoal(x + (width / count ) * i , y, width / count , height));
+                    list.Add(new MyWagonCoal(x + (width + gap) * i, y, width, height));
                 }
             if (t == 2)
                 for (int i = 0; i < count; i++)
                 {
-                    list.Add(new MyWagonSand(x + (width / count) * i , y, width / count , height));
+                    list.Add(new MyWagonSand(x + (width + gap) * i, y, width, height));
                 }
         }
         public override void draw(Graphics instrument)
@@ -58,6 +54,11 @@ namespace WindowsFormsApp14
             foreach (MyWagon i in list)
                 isInside = isInside || i.IsPointInside(x, y);
             return isInside;
+        }
+        public override void move(int new_x, int new_y)
+        {
+            foreach (MyWagon i in list)
+                i.move(new_x, new_y);
         }
     }
 }

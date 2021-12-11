@@ -27,5 +27,9 @@ namespace WindowsFormsApp14
             double distantion = Math.Pow(this.x - x, 2) + Math.Pow(this.y - y,2);
             return distantion <= Math.Pow(rad, 2);                
         }
+        public override void move(int new_x, int new_y)
+        {
+            base.move(new_x, new_y);
+        }
     }
 }

@@ -11,9 +11,9 @@ namespace WindowsFormsApp14
     {
         MyRectangle coal;
         public MyWagonCoal(int x, int y,int width, int height):            
-            base(x ,y-2*height/10,width,8*height/10,width*height/5)
+            base(x ,y+2*height/10,width,6*height/10)
         {
-            coal = new MyRectangle(x, y - height / 2 + height / 10, 8*width/10, 2 * height / 10);
+            coal = new MyRectangle(x, y - 3*height / 10 , 8*width/10, 4 * height / 10);
         }
         public override void draw(Graphics instrument)
         {
@@ -23,6 +23,11 @@ namespace WindowsFormsApp14
         public override bool IsPointInside(int x, int y)
         {
             return base.IsPointInside(x, y)|| coal.IsPointInside(x,y);
+        }
+        public override void move(int new_x, int new_y)
+        {
+            base.move(new_x, new_y);
+            coal.move(new_x, new_y);
         }
     }
 }

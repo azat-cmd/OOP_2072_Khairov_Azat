@@ -30,5 +30,9 @@ namespace WindowsFormsApp14
             return x <= this.x + width / 2 && x >= this.x - width / 2 &&
                    y <= this.y + height / 2 && y >= this.y - height / 2 ;
         }
+        public override void move(int new_x, int new_y)
+        {
+            base.move(new_x, new_y);
+        }
     }
 }
