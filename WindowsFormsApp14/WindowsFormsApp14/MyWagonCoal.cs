@@ -9,10 +9,13 @@ namespace WindowsFormsApp14
 {
     class MyWagonCoal:MyWagon
     {
+        int width, height;
         MyRectangle coal;
         public MyWagonCoal(int x, int y,int width, int height):            
             base(x ,y+2*height/10,width,6*height/10)
         {
+            this.width = width;
+            this.height = height;
             coal = new MyRectangle(x, y - 3*height / 10 , 8*width/10, 4 * height / 10);
         }
         public override void draw(Graphics instrument)
@@ -26,8 +29,8 @@ namespace WindowsFormsApp14
         }
         public override void move(int new_x, int new_y)
         {
-            base.move(new_x, new_y);
-            coal.move(new_x, new_y);
+            base.move(new_x, new_y + 2 * height / 10);
+            coal.move(new_x, new_y - 3 * height / 10);
         }
     }
 }

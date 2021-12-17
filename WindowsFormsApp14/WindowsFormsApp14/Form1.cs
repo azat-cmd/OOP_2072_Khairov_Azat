@@ -27,7 +27,6 @@ namespace WindowsFormsApp14
             sand
         }
         Figs fig = Figs.circle;
-        static Random rnd = new Random();
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +36,6 @@ namespace WindowsFormsApp14
         private void button2_Click(object sender, EventArgs e)
         {
             fig = Figs.rect;
-
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -56,10 +54,7 @@ namespace WindowsFormsApp14
             fig = Figs.train;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
         private bool IsInt(string str)
         {
             return Int32.TryParse(str, out int a);
@@ -67,37 +62,32 @@ namespace WindowsFormsApp14
         List<Figure> figures = new List<Figure>();
         private void Click(object sender, MouseEventArgs e)
         {
-            if (!move)
+            int x = e.X;
+            int y = e.Y;
+            Graphics instrument = DrawPanel.CreateGraphics();
+            if (fig == Figs.circle && IsInt(rad.Text))
             {
-
-
-                int x = e.X;
-                int y = e.Y;
-                Graphics instrument = DrawPanel.CreateGraphics();
-                if (fig == Figs.circle && IsInt(rad.Text))
-                {
-                    figures.Add(new MyCirkle(x, y, Convert.ToInt32(rad.Text)));
-                }
-                if (fig == Figs.rect && IsInt(width.Text) && IsInt(height.Text))
-                {
-                    figures.Add(new MyRectangle(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
-                }
-                if (fig == Figs.wagon && IsInt(width.Text) && IsInt(height.Text))
-                {
-                    figures.Add(new MyWagon(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
-                }
-                if (fig == Figs.coal && IsInt(width.Text) && IsInt(height.Text))
-                {
-                    figures.Add(new MyWagonCoal(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
-                }
-                if (fig == Figs.sand && IsInt(width.Text) && IsInt(height.Text))
-                {
-                    figures.Add(new MyWagonSand(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
-                }
-                if (fig == Figs.train && IsInt(width.Text) && IsInt(height.Text) && IsInt(count.Text))
-                {
-                    figures.Add(new MyTrain(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text), Convert.ToInt32(count.Text)));
-                }
+                figures.Add(new MyCirkle(x, y, Convert.ToInt32(rad.Text)));
+            }
+            if (fig == Figs.rect && IsInt(width.Text) && IsInt(height.Text))
+            {
+                figures.Add(new MyRectangle(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
+            }
+            if (fig == Figs.wagon && IsInt(width.Text) && IsInt(height.Text))
+            {
+                figures.Add(new MyWagon(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
+            }
+            if (fig == Figs.coal && IsInt(width.Text) && IsInt(height.Text))
+            {
+                figures.Add(new MyWagonCoal(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
+            }
+            if (fig == Figs.sand && IsInt(width.Text) && IsInt(height.Text))
+            {
+                figures.Add(new MyWagonSand(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text)));
+            }
+            if (fig == Figs.train && IsInt(width.Text) && IsInt(height.Text) && IsInt(count.Text))
+            {
+                figures.Add(new MyTrain(x, y, Convert.ToInt32(width.Text), Convert.ToInt32(height.Text), Convert.ToInt32(count.Text)));
             }
             DrawPanel.Refresh();
         }
@@ -115,18 +105,36 @@ namespace WindowsFormsApp14
         bool move = false;
         private void move_button_Click(object sender, EventArgs e)
         {
-
-            move = true;
-
-        }
-        Figure figm;
-        bool moveOK;
-        private void Down(object sender, MouseEventArgs e)
-        {
-
+            move = !move;
             if (move)
             {
-                moveOK = false;
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+            }
+            else
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+            }
+            
+        }
+        Figure figm;
+        bool moveOK = false;
+        private void Down(object sender, MouseEventArgs e)
+        {
+            
+            moveOK = false;
+            if (move)
+            {
+                fig = Figs.None;
                 int x = e.X;
                 int y = e.Y;
                 foreach (Figure fig in figures)
@@ -136,8 +144,6 @@ namespace WindowsFormsApp14
                         figm = fig;
                         moveOK = true;
                     }
-                        ;
-                    continue;
                 }
             }
 
@@ -151,13 +157,15 @@ namespace WindowsFormsApp14
                 int x = e.X;
                 int y = e.Y;
                 figm.move(x, y);
-                move = false;
                 moveOK = false;
                 DrawPanel.Refresh();
-                fig = Figs.None;
             }
         }
-
+        private void button7_Click(object sender, EventArgs e)
+        {
+            figures = new List<Figure>();
+            DrawPanel.Refresh();
+        }
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -167,7 +175,10 @@ namespace WindowsFormsApp14
         {
 
         }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -178,10 +189,6 @@ namespace WindowsFormsApp14
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            figures = new List<Figure>();
-            DrawPanel.Refresh();
-        }
+
     }
 }

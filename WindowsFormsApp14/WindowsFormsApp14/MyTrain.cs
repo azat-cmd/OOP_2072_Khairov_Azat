@@ -9,7 +9,8 @@ namespace WindowsFormsApp14
 {
     class MyTrain : Figure
     {
-        
+        int width;
+        int height;
         static Random rnd;
         List<MyWagon> list;
         public int Count
@@ -22,7 +23,9 @@ namespace WindowsFormsApp14
         int gap;
         public MyTrain(int x, int y, int width, int height,int count) : base(x, y)
         {
-            
+            this.width = width;
+            this.height = height;
+
             gap = width/10;
             rnd = new Random();
             list = new List<MyWagon>();           
@@ -57,8 +60,12 @@ namespace WindowsFormsApp14
         }
         public override void move(int new_x, int new_y)
         {
-            foreach (MyWagon i in list)
-                i.move(new_x, new_y);
+            
+            for (int i = 0; i < Count; i++)
+            {
+                list[i].move(new_x + (width + gap) * i, new_y);
+            }
+            
         }
     }
 }

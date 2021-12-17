@@ -36,17 +36,19 @@
             this.button5 = new System.Windows.Forms.Button();
             this.move_button = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.rad = new System.Windows.Forms.TextBox();
-            this.width = new System.Windows.Forms.TextBox();
-            this.height = new System.Windows.Forms.TextBox();
-            this.count = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.rad = new System.Windows.Forms.NumericUpDown();
+            this.width = new System.Windows.Forms.NumericUpDown();
+            this.height = new System.Windows.Forms.NumericUpDown();
+            this.count = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.rad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.width)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.height)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.count)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -130,36 +132,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // rad
-            // 
-            this.rad.Font = new System.Drawing.Font("Microsoft JhengHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rad.Location = new System.Drawing.Point(499, 87);
-            this.rad.Name = "rad";
-            this.rad.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rad.Size = new System.Drawing.Size(57, 22);
-            this.rad.TabIndex = 9;
-            // 
-            // width
-            // 
-            this.width.Location = new System.Drawing.Point(499, 128);
-            this.width.Name = "width";
-            this.width.Size = new System.Drawing.Size(57, 20);
-            this.width.TabIndex = 10;
-            // 
-            // height
-            // 
-            this.height.Location = new System.Drawing.Point(499, 171);
-            this.height.Name = "height";
-            this.height.Size = new System.Drawing.Size(57, 20);
-            this.height.TabIndex = 11;
-            // 
-            // count
-            // 
-            this.count.Location = new System.Drawing.Point(499, 211);
-            this.count.Name = "count";
-            this.count.Size = new System.Drawing.Size(57, 20);
-            this.count.TabIndex = 12;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -207,28 +179,48 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // numericUpDown1
+            // rad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(499, 272);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown1.TabIndex = 18;
+            this.rad.Location = new System.Drawing.Point(499, 89);
+            this.rad.Name = "rad";
+            this.rad.Size = new System.Drawing.Size(57, 20);
+            this.rad.TabIndex = 18;
+            // 
+            // width
+            // 
+            this.width.Location = new System.Drawing.Point(499, 128);
+            this.width.Name = "width";
+            this.width.Size = new System.Drawing.Size(57, 20);
+            this.width.TabIndex = 19;
+            // 
+            // height
+            // 
+            this.height.Location = new System.Drawing.Point(499, 171);
+            this.height.Name = "height";
+            this.height.Size = new System.Drawing.Size(57, 20);
+            this.height.TabIndex = 20;
+            // 
+            // count
+            // 
+            this.count.Location = new System.Drawing.Point(499, 211);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(57, 20);
+            this.count.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.count);
+            this.Controls.Add(this.height);
+            this.Controls.Add(this.width);
+            this.Controls.Add(this.rad);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.count);
-            this.Controls.Add(this.height);
-            this.Controls.Add(this.width);
-            this.Controls.Add(this.rad);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.move_button);
             this.Controls.Add(this.button5);
@@ -239,7 +231,10 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.width)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.height)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.count)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,16 +249,15 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button move_button;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox rad;
-        private System.Windows.Forms.TextBox width;
-        private System.Windows.Forms.TextBox height;
-        private System.Windows.Forms.TextBox count;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown rad;
+        private System.Windows.Forms.NumericUpDown width;
+        private System.Windows.Forms.NumericUpDown height;
+        private System.Windows.Forms.NumericUpDown count;
     }
 }
 
