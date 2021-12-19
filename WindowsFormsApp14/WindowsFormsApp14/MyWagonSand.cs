@@ -9,7 +9,7 @@ namespace WindowsFormsApp14
 {
     class MyWagonSand : MyWagon
     {
-        int width, height;
+        
         Point p1;
         Point p2;
         Point p3;
