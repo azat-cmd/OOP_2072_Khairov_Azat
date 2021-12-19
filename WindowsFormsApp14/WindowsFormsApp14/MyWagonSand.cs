@@ -14,14 +14,14 @@ namespace WindowsFormsApp14
         Point p2;
         Point p3;
         public MyWagonSand(int x, int y, int width, int height) :
-            base(x, y + 2 * height / 10, width, 6 * height / 10)
+            base(x, y, width, height)
         {
             this.width = width;
             this.height = height; 
 
-            p1 = new Point(x - width / 2, y - height / 10);
-            p2 = new Point(x + width / 2, y - height / 10);
-            p3 = new Point(x, y - height/2);
+            p1 = new Point(x - width / 2, y - height / 2);
+            p2 = new Point(x + width / 2, y - height / 2);
+            p3 = new Point(x, y - height);
         }
         public override void draw(Graphics instrument)
         {
@@ -42,10 +42,10 @@ namespace WindowsFormsApp14
         }
         public override void move(int new_x, int new_y)
         {
-            base.move(new_x, new_y + 2 * height / 10);
-            p1 = new Point(new_x - width / 2, new_y - height / 10);
-            p2 = new Point(new_x + width / 2, new_y - height / 10);
-            p3 = new Point(new_x, new_y - height / 2);
+            base.move(new_x, new_y );
+            p1 = new Point(new_x - width / 2, new_y - height / 2);
+            p2 = new Point(new_x + width / 2, new_y - height / 2);
+            p3 = new Point(new_x, new_y - height);
         }
     }
 }
