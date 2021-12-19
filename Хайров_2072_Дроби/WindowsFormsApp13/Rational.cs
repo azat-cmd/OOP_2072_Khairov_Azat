@@ -69,47 +69,13 @@ namespace WindowsFormsApp13
         }
         public static Rational reduction(Rational rational)
         {
-            int c = 2;
-
-            while (c > 1)
-            {
-                double a = rational.numerator;
-                double b = rational.delimeter;
-                while (a * b != 0)
-                {
-                    if (a > b)
-                        a = a % b;
-                    else
-                        b = b % a;
-
-                }
-                c = Convert.ToInt32(a + b);
-                rational.numerator = rational.numerator / c;
-                rational.delimeter = rational.delimeter / c;
-            }
-            return rational;
+            rational.reduction();
+            
+            return new Rational(rational.numerator,rational.delimeter);
         }
         public Rational Reduction()
         {
-            int c = 2;
-
-            while (c > 1)
-            {
-                double a = numerator;
-                double b = delimeter;
-                while (a * b != 0)
-                { 
-                    if (a > b)
-                        a = a % b;
-                    else
-                        b = b % a;
-
-                }
-                c = Convert.ToInt32(a + b);
-                numerator = numerator / c;
-                delimeter = delimeter / c;
-                
-            }
+            reduction();
             return new Rational(numerator, delimeter);
         }
     }
